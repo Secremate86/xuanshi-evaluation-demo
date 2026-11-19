@@ -84,10 +84,11 @@ function renderNode(c) {
 
 function renderResults() {
   const visible = items();
-  const rowClass = stageId => visible.some(c=>c.stageId===stageId&&c.kind==='retest') ? ' retest-row' : '';
+  const caseStage = c => c.stageId === 'isolate' ? 'webp' : c.stageId;
+  const rowClass = stageId => visible.some(c=>caseStage(c)===stageId&&c.kind==='retest') ? ' retest-row' : '';
   const scopedModels = state.model === 'all' ? models : models.filter(m => m.id === state.model);
   const selectedModels = scopedModels.filter(m => visible.some(c => c.modelId === m.id));
-  const visibleStages = (state.status === 'all' && !state.query) ? stages : stages.filter(s => visible.some(c => c.stageId === s.id || (s.id === 'webp' && c.kind === 'retest')));
+  const visibleStages = (state.status === 'all' && !state.query) ? stages : stages.filter(s => visible.some(c => caseStage(c) === s.id));
   document.querySelector('.scroll-hint').textContent = `左右滑动查看 ${selectedModels.length} 个模型 →`;
   document.querySelector('.graph-guide').hidden = selectedModels.length < 2 || state.view === 'table';
   document.querySelector('.replay-button').disabled = state.view === 'table';
@@ -116,7 +117,7 @@ function renderResults() {
       const stats=summarize(modelCases);
       return `<section class="lane" style="--lane-color:${m.color}" aria-label="${m.name}泳道"><header class="lane-header"><h3 title="flare / sunburst 是渠道提供的模型后缀，不代表能力等级">${m.name}</h3><div class="lane-meta"><span class="lane-status">${stats.passed}/${stats.total} 通过</span>${stats.retests ? `<span>${stats.retests} 次复测</span>` : ''}</div></header><div class="lane-track">${visibleStages.map(s=>{
         const c=visible.find(c=>c.modelId===m.id && c.stageId===s.id && c.kind!=='retest');
-        const retests=visible.filter(c=>c.modelId===m.id && c.stageId===s.id && c.kind==='retest');
+        const retests=visible.filter(c=>c.modelId===m.id && caseStage(c)===s.id && c.kind==='retest');
         return `<div class="stage-cell${rowClass(s.id)}">${c?renderNode(c):`<div class="skipped-node"><span></span><div>${cases.some(c=>c.modelId===m.id&&c.stageId===s.id)?'已隐藏':'不适用'}</div></div>`}${retests.length?`<div class="retest-branch">${retests.map(c=>`<button data-case="${c.id}" class="branch-node ${c.status} ${state.replay===stages.indexOf(s)?'replaying':''}" aria-label="${m.name}，${c.title}，${statusLabels[c.status]}"><span class="branch-label">${c.title.replace('单参数复测 · ','')}</span><span class="branch-result">${statusLabels[c.status]}</span></button>`).join('')}</div>`:''}</div>`;
       }).join('')}</div></section>`;
     }).join('')}</div></div>`;
