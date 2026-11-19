@@ -46,36 +46,30 @@ function shell() {
   app.innerHTML = `
   <a class="skip-link" href="#results-content">跳到测评结果</a>
   <aside class="sidebar">
-    <a class="brand" href="./" aria-label="玄石测评首页"><img src="./icon.svg" alt=""/><div>玄石测评<small>让能力，有迹可循</small></div></a>
-    <div class="workspace"><span class="workspace-avatar">玄</span><div>个人工作空间<small>免费体验版</small></div><span class="workspace-dot"></span></div>
-    <div class="nav-caption">工作空间</div>
+    <a class="brand" href="./" aria-label="玄石测评首页"><img src="./icon.svg" alt=""/><div>玄石测评</div></a>
     <nav aria-label="工作空间导航">
       <button class="nav-item active" data-action="home">${icon('activity')}<span>我的测评</span><span class="nav-count">1</span></button>
       <button class="nav-item" data-action="compare">${icon('layers')}<span>模型对比</span></button>
       <button class="nav-item" data-action="suite">${icon('grid')}<span>用例实验室</span><span class="new-dot"></span></button>
     </nav>
-    <div class="sidebar-section"><div class="nav-caption">最近的测评</div><button class="recent active" data-action="home"><i></i><div>GPT-image 渠道测评<small>nxaiapp.com</small></div></button></div>
-    <div class="sidebar-bottom"><div class="demo-note">${icon('code')}<strong>前端交互演示</strong><p>无需密钥，无真实请求。<br/>探索数据背后的每个节点。</p><span>所有结果均为模拟数据</span></div><button class="nav-item" data-action="help">${icon('help')}<span>测评说明</span>${icon('external')}</button><div class="profile"><span class="avatar">H</span><div>体验者<small>个人工作空间</small></div><span class="online-dot"></span></div></div>
+    <div class="sidebar-bottom"><button class="nav-item" data-action="help">${icon('help')}<span>测评说明</span></button></div>
   </aside>
   <div class="main-shell">
-    <header class="topbar"><div class="breadcrumbs">工作空间 ${icon('chevron')} 我的测评 ${icon('chevron')} <strong>测评详情</strong></div><div class="topbar-right"><span class="demo-pill"><i></i>模拟数据</span><button class="icon-button" data-action="help" aria-label="查看测评说明">${icon('help')}</button><button class="icon-button mobile-menu" data-action="menu" aria-label="打开工作空间菜单">${icon('grid')}</button><span class="avatar small">H</span></div></header>
+    <header class="topbar"><div class="breadcrumbs">渠道测评 <span>/</span><span class="batch-id">批次 XS-20261119-${String(state.batch).padStart(2,'0')}</span></div><div class="topbar-right"><span class="demo-pill">模拟数据</span><button class="icon-button mobile-menu" data-action="menu" aria-label="打开工作空间菜单">${icon('grid')}</button></div></header>
     <main>
-      <div class="backline"><button class="text-button" data-action="history">← <span>全部测评</span></button><span class="batch-id">批次 XS-20261119-${String(state.batch).padStart(2,'0')}</span></div>
-      <section class="page-heading"><div><div class="eyebrow"><span></span> 渠道能力评估 <span class="slash">/</span> 图像生成</div><h1>GPT-image 渠道测评 <span class="complete-tag">${icon('check')}已完成</span></h1><p>每一个节点，都是一次能力验证。</p></div><div class="heading-actions"><button class="button" data-action="export">${icon('download')}导出报告</button><button class="button primary" data-action="rerun">${icon('refresh')}重新测评</button></div></section>
-      <div class="metadata"><span><span class="provider-logo">N</span>nxaiapp.com</span><i></i><span>${icon('bolt')}快速批量校验</span><i></i><span>${icon('clock')}2026-11-19 14:18</span><i></i><span>评分版本 image-quick-v10</span></div>
+      <section class="page-heading"><div><h1>GPT-image 渠道测评</h1><p class="channel-name"><span class="provider-logo">N</span>nxaiapp.com</p></div><div class="heading-actions"><button class="button" data-action="export">${icon('download')}导出报告</button><button class="button primary" data-action="rerun">${icon('refresh')}重新测评</button></div></section>
       <section class="metrics" aria-label="测评概览">
-      <div class="metric"><div>批次综合评分 <button class="inline-icon" data-action="score" aria-label="查看评分规则" title="来源不符与非法参数未拒绝触发硬门槛；点击了解评分">${icon('info')}</button></div><strong>0<span>/ 100</span></strong><button class="metric-foot danger-text" data-action="score"><i></i>硬门槛未通过 · 查看原因 →</button><p class="score-note">${totals.passed} 个通过用例不抵消硬门槛</p></div>
-        <div class="metric"><div>参与测评模型 ${icon('layers')}</div><strong>5<span>个模型</span></strong><span class="metric-foot">覆盖 3 个版本 · 2 套模型规范</span><p class="score-note">各版本承诺支持的能力不同</p></div>
-      <div class="metric"><div>用例执行情况 ${icon('grid')}</div><strong>31<span>/ 31 已完成</span></strong><span class="metric-foot"><b class="green-text">${totals.passed} 通过</b><span class="metric-separator">·</span>${totals.total-totals.passed} 含异常</span><p class="score-note">含 1 项仅接收通过、效果未评估</p></div>
-        <div class="metric"><div>批次总耗时 ${icon('clock')}</div><strong>24<span>分 08 秒</span></strong><span class="metric-foot">含排队、请求和等待时间</span><p class="score-note">泳道底部仅统计请求耗时之和</p></div>
+      <div class="metric"><div>综合评分</div><strong>0<span>/ 100</span></strong><button class="metric-foot danger-text" data-action="score">硬门槛未通过 ${icon('info')}</button></div>
+      <div class="metric"><div>测评模型</div><strong>5<span>个</span></strong></div>
+      <div class="metric"><div>完成用例</div><strong>${totals.total}<span>/ ${totals.total}</span></strong><span class="metric-foot"><b class="green-text">${totals.passed} 通过</b><span class="metric-separator">·</span>${totals.total-totals.passed} 含异常</span></div>
+      <div class="metric"><div>批次耗时</div><strong>24<span>分 08 秒</span></strong></div>
       </section>
-      <div class="insight"><div class="insight-icon">!</div><div><strong>有 2 类硬门槛需要关注</strong><p>5 个模型均存在来源声明不符、非法参数未拒绝。部分格式与多图参数未按预期生效。</p></div><button class="text-button" data-action="issues">查看全部硬门槛 ${icon('arrow')}</button></div>
-      <section class="results-panel"><div class="results-title"><div><span class="section-icon">${icon('git')}</span><h2>测评轨迹</h2><span class="count-chip">5 条泳道</span></div><div class="view-switch" role="group" aria-label="视图切换"><button data-view="lanes" class="selected">${icon('git')}泳道视图</button><button data-view="table">${icon('list')}列表视图</button></div></div>
+      <section class="results-panel"><div class="results-title"><div><span class="section-icon">${icon('git')}</span><h2>测评轨迹</h2></div><div class="view-switch" role="group" aria-label="视图切换"><button data-view="lanes" class="selected">${icon('git')}泳道视图</button><button data-view="table">${icon('list')}列表视图</button></div></div>
       <div class="toolbar"><div class="filter-tabs" role="group" aria-label="用例状态筛选"><button data-status="all" class="selected">全部用例 <span>${totals.total}</span></button><button data-status="abnormal">仅看异常 <span>${totals.total-totals.passed}</span></button><button data-status="gate">硬门槛 <span>15</span></button><button data-status="pass">已通过 <span>${totals.passed}</span></button></div><div class="toolbar-actions"><label class="search-box">${icon('search')}<input id="search" placeholder="搜索用例…" aria-label="搜索用例" autocomplete="off"/></label><label class="model-filter"><select id="model-filter" aria-label="筛选模型"><option value="all">全部模型</option>${models.map(m=>`<option value="${m.id}">${m.name}</option>`).join('')}</select>${icon('down')}</label><button class="icon-button" data-action="compact" aria-label="切换紧凑布局" title="切换紧凑布局" aria-pressed="false">${icon('sliders')}</button></div></div>
-      <div class="canvas-top"><span><i class="live-dot"></i><b id="visible-count">31</b> 个用例节点 <span class="faint">· 点击节点查看检查详情</span></span><button class="text-button replay-button" data-action="replay">${icon('play')}回放轨迹</button></div>
-      <div class="graph-guide"><div class="legend"><span><b class="symbol-pass">✓</b>通过</span><span><b class="symbol-partial">−</b>部分通过</span><span><b class="symbol-fail">×</b>失败</span><span><b class="symbol-gate">!</b>硬门槛</span><span><i class="branch-line"></i>单参数复测</span><span>○ 不适用/隐藏</span></div><span class="scroll-hint">← 左右滑动比较模型 →</span></div>
+      <div class="canvas-top"><span><b id="visible-count">31</b> 项用例</span><div class="legend"><span><b class="symbol-pass">✓</b>通过</span><span><b class="symbol-partial">−</b>部分通过</span><span><b class="symbol-fail">×</b>失败</span><span><b class="symbol-gate">!</b>硬门槛</span><span><i class="branch-line"></i>复测</span></div><button class="text-button replay-button" data-action="replay">${icon('play')}回放轨迹</button></div>
+      <div class="graph-guide"><span class="scroll-hint">左右滑动查看模型 →</span></div>
       <div id="results-content" tabindex="-1"></div>
-      <div class="canvas-footer"><div class="legend"><span><i class="node-dot pass"></i>通过</span><span><i class="node-dot partial"></i>部分通过</span><span><i class="node-dot fail"></i>失败</span><span><i class="branch-line"></i>隔离复测</span><span>${icon('shield')}来源检查封存</span></div><span>测试完成于 14:42:08</span></div></section>
+      </section>
       <footer class="page-footer"><span>玄石测评 <i>·</i> 全部为模拟数据，不代表真实渠道能力</span><button class="text-button" data-action="help">使用说明 ${icon('help')}</button></footer>
     </main>
   </div>`;
@@ -84,18 +78,18 @@ function shell() {
 
 function renderNode(c) {
   const model = models.find(m => m.id === c.modelId);
-  const passed = c.checks.filter(ch => ch.status === 'pass').length;
   const active = state.replay === stages.findIndex(s=>s.id === c.stageId);
-  return `<button class="case-node ${c.status} ${c.gate ? 'hard-gate' : ''} ${active ? 'replaying' : ''} ${c.kind === 'retest' ? 'retest-node' : ''}" data-case="${c.id}" aria-label="${model.name}，${c.title}，${c.gate?'硬门槛失败':statusLabels[c.status]}"><span class="node-marker ${c.status}">${c.gate ? '!' : c.status === 'pass' ? icon('check') : c.status === 'fail' ? '×' : '−'}</span><span class="node-content"><span class="node-model-label">${model.name}</span><span class="node-top"><strong>${c.title}</strong><span class="node-time" title="该次请求耗时 ${c.duration.toFixed(1)} 秒">${c.duration.toFixed(1)}秒</span></span><span class="node-summary">${c.summary}</span><span class="node-bottom"><span class="node-result ${c.status}">${c.kind === 'retest' ? icon('git') : ''}${c.gate?'硬门槛失败':statusLabels[c.status]}</span><span>${c.stageId === 'source' ? `${icon('shield')}细节不公开` : `${passed}/${c.checks.length} 项通过`}</span>${icon('chevron')}</span></span></button>`;
+  return `<button class="case-node ${c.status} ${c.gate ? 'hard-gate' : ''} ${active ? 'replaying' : ''}" data-case="${c.id}" aria-label="${model.name}，${c.title}，${c.gate?'硬门槛失败':statusLabels[c.status]}"><span class="node-marker ${c.status}">${c.gate ? '!' : c.status === 'pass' ? icon('check') : c.status === 'fail' ? '×' : '−'}</span><span class="node-content"><span class="node-top"><strong>${c.title}</strong></span><span class="node-bottom"><span class="node-result ${c.status}">${c.gate?'硬门槛失败':statusLabels[c.status]}</span>${icon('chevron')}</span></span></button>`;
 }
 
 function renderResults() {
   const visible = items();
+  const rowClass = stageId => visible.some(c=>c.stageId===stageId&&c.kind==='retest') ? ' retest-row' : '';
   const scopedModels = state.model === 'all' ? models : models.filter(m => m.id === state.model);
   const selectedModels = scopedModels.filter(m => visible.some(c => c.modelId === m.id));
   const visibleStages = (state.status === 'all' && !state.query) ? stages : stages.filter(s => visible.some(c => c.stageId === s.id || (s.id === 'webp' && c.kind === 'retest')));
-  document.querySelector('.count-chip').textContent = `${selectedModels.length} 条泳道`;
-  document.querySelector('.scroll-hint').textContent = selectedModels.length > 1 ? `← 左右滑动比较 ${selectedModels.length} 个模型 →` : '当前仅显示 1 个模型';
+  document.querySelector('.scroll-hint').textContent = `左右滑动查看 ${selectedModels.length} 个模型 →`;
+  document.querySelector('.graph-guide').hidden = selectedModels.length < 2 || state.view === 'table';
   document.querySelector('.replay-button').disabled = state.view === 'table';
   document.querySelector('.replay-button').title = state.view === 'table' ? '切换到泳道视图后可回放' : '按执行阶段回放当前筛选结果';
   document.querySelector('#visible-count').textContent = visible.length;
@@ -109,21 +103,22 @@ function renderResults() {
   if (!visible.length) { content.innerHTML = `<div class="empty-state">${icon('search')}<h3>没有匹配的用例</h3><p>试试其他关键词，或重置筛选条件。</p><button class="button" data-action="reset">重置筛选</button></div>`; return; }
   if (state.view === 'table') {
     if (phoneLayout.matches) {
-      content.innerHTML = `<div class="mobile-case-list">${visible.map(c => `<button class="mobile-case-card" data-case="${c.id}"><span class="mobile-case-heading"><strong>${c.title}</strong>${badge(c.status)}</span><span class="mobile-case-model">${models.find(m=>m.id===c.modelId).name}</span><span class="mobile-case-summary">${c.summary}</span><span class="mobile-case-meta">${c.checks.filter(ch=>ch.status==='pass').length}/${c.checks.length} 检查通过 · 耗时 ${c.duration.toFixed(1)} 秒 ${icon('chevron')}</span></button>`).join('')}</div>`;
+      content.innerHTML = `<div class="mobile-case-list">${visible.map(c => `<button class="mobile-case-card" data-case="${c.id}"><span class="mobile-case-heading"><strong>${c.title}</strong>${badge(c.status)}</span><span class="mobile-case-model">${models.find(m=>m.id===c.modelId).name}</span></button>`).join('')}</div>`;
       return;
     }
-    content.innerHTML = `<div class="table-scroll"><table class="case-table"><thead><tr><th>用例名称</th><th>模型</th><th>结果</th><th>检查项</th><th>耗时</th><th></th></tr></thead><tbody>${visible.map(c=>`<tr><td><button class="table-link" data-case="${c.id}">${c.kind === 'retest' ? icon('git') : icon(stages.find(s=>s.id === c.stageId)?.icon)}${c.title}</button><small>${c.summary}</small></td><td><span class="model-dot" style="background:${models.find(m=>m.id === c.modelId).color}"></span>${models.find(m=>m.id === c.modelId).name}</td><td>${badge(c.status)}</td><td>${c.checks.filter(ch=>ch.status === 'pass').length} / ${c.checks.length}</td><td>${c.duration.toFixed(1)} 秒</td><td><button class="icon-button" data-case="${c.id}" aria-label="查看${c.title}">${icon('chevron')}</button></td></tr>`).join('')}</tbody></table></div>`;
+    content.innerHTML = `<div class="table-scroll"><table class="case-table"><thead><tr><th>用例名称</th><th>模型</th><th>结果</th><th>检查项</th><th>耗时</th><th></th></tr></thead><tbody>${visible.map(c=>`<tr><td><button class="table-link" data-case="${c.id}">${c.kind === 'retest' ? icon('git') : icon(stages.find(s=>s.id === c.stageId)?.icon)}${c.title}</button></td><td><span class="model-dot" style="background:${models.find(m=>m.id === c.modelId).color}"></span>${models.find(m=>m.id === c.modelId).name}</td><td>${badge(c.status)}</td><td>${c.checks.filter(ch=>ch.status === 'pass').length} / ${c.checks.length}</td><td>${c.duration.toFixed(1)} 秒</td><td><button class="icon-button" data-case="${c.id}" aria-label="查看${c.title}">${icon('chevron')}</button></td></tr>`).join('')}</tbody></table></div>`;
     return;
   }
   content.innerHTML = `<div class="graph-scroll" tabindex="0" role="region" aria-label="模型泳道，可左右滚动"><div class="graph ${state.compact ? 'compact' : ''}" style="--lanes:${selectedModels.length}">
-    <div class="stage-axis"><div class="axis-head">阶段</div>${visibleStages.map(s=>`<div class="axis-row"><span>0${stages.indexOf(s)+1}</span><b>${s.short}</b></div>`).join('')}<div class="axis-end">完成</div></div>
+    <div class="stage-axis"><div class="axis-head">阶段</div>${visibleStages.map(s=>`<div class="axis-row${rowClass(s.id)}"><b>${s.short}</b></div>`).join('')}</div>
     ${selectedModels.map(m=>{
       const modelCases=cases.filter(c=>c.modelId===m.id);
       const stats=summarize(modelCases);
-      return `<section class="lane" style="--lane-color:${m.color}" aria-label="${m.name}泳道"><header class="lane-header"><span class="model-tag" title="模型规范规定该版本应支持的参数和格式">${m.version} 版规范</span><h3 title="flare / sunburst 是渠道提供的模型后缀，不代表本页评定的能力等级">${m.name}</h3><div><span class="lane-status">${stats.passed}/${stats.total} 通过</span><span>${stats.total-stats.retests} 用例${stats.retests ? ` + ${stats.retests} 复测` : ''}</span></div><div class="lane-scores">当前 ${visible.filter(c=>c.modelId===m.id).length} 项 · 参数 ${m.score}/8</div><div class="lane-progress"><i></i></div></header><div class="lane-track">${visibleStages.map(s=>{
-        const c=visible.find(c=>c.modelId===m.id && c.stageId===s.id);
-        return `<div class="stage-cell ${c?.id==='26s-webp'||(s.id==='webp'&&m.id==='26s')?'has-branch':''}">${c?renderNode(c):`<div class="skipped-node"><span></span><div><small>${m.name}</small>${cases.some(c=>c.modelId===m.id&&c.stageId===s.id)?'已筛选隐藏':`${s.short} 不适用（不计分）`}</div></div>`}${s.id==='webp'&&m.id==='26s'?`<div class="retest-branch">${visible.filter(c=>c.modelId===m.id&&c.kind==='retest').map(c=>`<button data-case="${c.id}" class="branch-node ${c.status} ${state.replay===2?'replaying':''}" title="${c.summary}"><i>${c.status==='pass'?'✓':c.status==='partial'?'−':'×'}</i>${c.title.replace('单参数复测 · ','')} · ${statusLabels[c.status]}${icon('chevron')}</button>`).join('')}</div>`:''}</div>`;
-      }).join('')}<div class="lane-end"><span class="end-dot">${icon('check')}</span><span>请求合计</span><b>${m.seconds} 秒</b></div></div></section>`;
+      return `<section class="lane" style="--lane-color:${m.color}" aria-label="${m.name}泳道"><header class="lane-header"><h3 title="flare / sunburst 是渠道提供的模型后缀，不代表能力等级">${m.name}</h3><div class="lane-meta"><span class="lane-status">${stats.passed}/${stats.total} 通过</span>${stats.retests ? `<span>${stats.retests} 次复测</span>` : ''}</div></header><div class="lane-track">${visibleStages.map(s=>{
+        const c=visible.find(c=>c.modelId===m.id && c.stageId===s.id && c.kind!=='retest');
+        const retests=visible.filter(c=>c.modelId===m.id && c.stageId===s.id && c.kind==='retest');
+        return `<div class="stage-cell${rowClass(s.id)}">${c?renderNode(c):`<div class="skipped-node"><span></span><div>${cases.some(c=>c.modelId===m.id&&c.stageId===s.id)?'已隐藏':'不适用'}</div></div>`}${retests.length?`<div class="retest-branch">${retests.map(c=>`<button data-case="${c.id}" class="branch-node ${c.status} ${state.replay===stages.indexOf(s)?'replaying':''}" aria-label="${m.name}，${c.title}，${statusLabels[c.status]}"><span class="branch-label">${c.title.replace('单参数复测 · ','')}</span><span class="branch-result">${statusLabels[c.status]}</span></button>`).join('')}</div>`:''}</div>`;
+      }).join('')}</div></section>`;
     }).join('')}</div></div>`;
 }
 

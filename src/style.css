@@ -27,3 +27,188 @@
 @media(max-width:650px){.matrix-scroll{margin:0 12px;max-height:55vh}.matrix-hint{padding:0 16px}.check-matrix th:first-child{min-width:100px;max-width:100px}.check-matrix th,.check-matrix td{min-width:195px;padding:12px 10px}.matrix-picker{flex-wrap:wrap}}
 :root{--font:'Noto Sans SC','Noto Sans CJK SC','Microsoft YaHei',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.close-button{width:40px;height:40px}
 .case-table tbody tr{cursor:pointer}
+
+/* Keep the overview quiet; full diagnostics live in the case drawer. */
+:root{--text-muted:#68758a;--green:#2f7c61;--red:#a94c5d;--amber:#8b672f}
+body{font-size:15px}
+.sidebar{padding-top:26px}
+.sidebar nav{margin-top:32px}
+.sidebar-bottom{padding-bottom:20px}
+.sidebar-bottom>.nav-item .icon:last-child{width:20px;height:20px;margin-left:0}
+.nav-item{min-height:48px;font-size:15px}
+.nav-count{font-size:13px}
+.topbar{height:60px}
+.breadcrumbs,.batch-id,.demo-pill{font-size:13px;color:#68758a;letter-spacing:0}
+.breadcrumbs{gap:12px}
+.topbar-right{gap:12px}
+main{padding-top:28px}
+.page-heading{margin-bottom:24px;align-items:center}
+.page-heading h1{font-size:28px;margin:0 0 10px;letter-spacing:-.5px}
+.page-heading .channel-name{display:flex;align-items:center;gap:8px;font-size:15px;color:#68758a}
+.provider-logo{width:22px;height:22px;font-size:13px}
+.heading-actions{padding-top:0}
+.button,.text-button{font-size:14px;min-height:44px}
+.button{height:auto;padding:10px 14px}
+.button .icon,.text-button .icon{width:17px;height:17px}
+.icon-button{width:44px;height:44px}
+.icon-button .icon{width:19px;height:19px}
+.metrics{padding:0;margin-bottom:24px;align-items:stretch}
+.metric{padding:18px 22px;min-height:132px}
+.metric>div:first-child{font-size:14px;color:#68758a}
+.metric>strong{font-size:34px;margin:5px 0;line-height:1.4}
+.metric>strong>span{font-size:14px;color:#68758a}
+.metric-foot{font-size:13px;color:#68758a;line-height:1.7;min-height:24px}
+.metric-foot .icon{width:16px;height:16px}
+.metric-separator{padding:0}
+.results-title{height:auto;min-height:72px;padding:14px 22px;gap:12px}
+.results-title h2{font-size:19px}
+.results-title .section-icon{display:none}
+.view-switch button{font-size:14px;min-height:42px;padding:8px 12px}
+.view-switch .icon{width:17px;height:17px}
+.toolbar{padding:14px 22px;gap:12px}
+.filter-tabs{gap:4px}
+.filter-tabs button{font-size:14px;min-height:44px;padding:8px 10px;color:#68758a}
+.filter-tabs button span{font-size:13px;margin-left:5px}
+.toolbar-actions{gap:10px}
+.search-box{min-width:0}
+.search-box input{font-size:14px;min-height:44px;width:140px}
+.model-filter select{font-size:14px;min-height:44px;max-width:230px}
+.toolbar-actions>.icon-button{width:44px;height:44px}
+.canvas-top{padding:12px 22px;gap:16px;flex-wrap:wrap;font-size:14px;color:#68758a}
+.canvas-top>span{white-space:nowrap}
+.canvas-top .legend{font-size:13px;display:flex;align-items:center;flex-wrap:wrap;gap:14px;line-height:1.8}
+.legend b{width:19px;height:19px}
+.canvas-top .replay-button{font-size:14px;min-height:40px}
+.graph-guide{display:none;padding:10px 22px}
+.graph-guide[hidden]{display:none}
+.scroll-hint{font-size:13px;color:#68758a}
+.graph-scroll{max-height:min(76vh,1000px);scroll-padding-top:96px}
+.graph{grid-template-columns:72px repeat(var(--lanes),minmax(220px,1fr));min-width:calc(72px + var(--lanes)*220px)}
+.graph[style="--lanes:1"]{grid-template-columns:72px minmax(0,1fr);min-width:292px;width:min(100%,440px)}
+.lane-header,.axis-head{height:96px}
+.axis-head{font-size:13px;writing-mode:horizontal-tb;letter-spacing:0;padding-top:27px;width:100%}
+.lane-header{padding:22px 15px 12px}
+.lane-header h3{font-size:15px;font-weight:600;color:#344157;margin:0 0 12px;letter-spacing:-.3px;white-space:normal;overflow-wrap:anywhere;line-height:1.4}
+.lane-header>div:not(.lane-progress){font-size:13px;color:#68758a;gap:8px;line-height:1.6}
+.lane-status{color:#68758a}
+.lane-track{padding-left:15px;padding-right:12px}
+.lane-track:before{left:26px;bottom:24px}
+.stage-cell,.axis-row{height:132px}
+.stage-cell{padding-top:22px}
+.axis-row{padding-top:32px}
+.axis-row b{font-size:14px;font-weight:500;color:#68758a}
+.stage-cell.retest-row,.axis-row.retest-row{height:236px}
+.case-node{gap:10px;align-items:flex-start;min-height:82px}
+.node-marker{width:23px;height:23px;min-width:23px;margin-top:9px;font-size:16px;background:#fff}
+.node-marker .icon{width:14px;height:14px}
+.hard-gate .node-marker{font-size:16px;border-radius:6px;background:#a75363}
+.node-content{padding:7px 7px 9px;margin:0;min-height:82px}
+.node-top{display:block}
+.node-top strong{font-size:16px;font-weight:550;color:#344157;white-space:normal;line-height:1.55;letter-spacing:0}
+.node-bottom{font-size:13px;margin-top:8px;gap:8px}
+.node-result{font-size:13px;padding:3px 7px;line-height:1.5}
+.node-bottom>.icon{width:16px;height:16px;margin-left:auto;color:#68758a}
+.node-result.fail,.badge.fail{color:#9f4554}
+.node-result.pass,.badge.pass{color:#29745b}
+.node-result.partial,.badge.partial{color:#8c652a}
+.skipped-node{font-size:14px;padding-top:15px;gap:12px;color:#7a8596}
+.retest-branch{position:relative;bottom:auto;left:auto;right:auto;display:grid;gap:8px;margin:2px 0 0 33px}
+.retest-branch:before{left:-21px;bottom:22px;height:75px}
+.branch-node{font-size:13px;min-height:40px;justify-content:space-between;padding:7px 9px;gap:8px;white-space:normal;line-height:1.5}
+.branch-label{color:#43516a;text-align:left}
+.branch-result{flex-shrink:0}
+.branch-node.fail .branch-result{color:#9f4554}
+.branch-node.partial .branch-result{color:#8c652a}
+.branch-node.pass .branch-result{color:#29745b}
+.graph.compact .stage-cell,.graph.compact .axis-row{height:116px}
+.graph.compact .stage-cell{padding-top:12px}
+.graph.compact .axis-row{padding-top:22px}
+.graph.compact .retest-row{height:220px}
+.case-table th,.case-table td{font-size:14px;padding-top:18px;padding-bottom:18px}
+.case-table .table-link{font-size:15px;min-height:44px;text-align:left}
+.badge{font-size:13px}
+.mobile-case-list{padding:12px}
+.mobile-case-card{min-height:116px;padding:18px 16px;gap:14px;margin-bottom:12px}
+.mobile-case-heading{font-size:16px;line-height:1.7;align-items:flex-start;color:#344157}
+.mobile-case-heading .badge{font-size:13px}
+.mobile-case-model{font-size:14px;color:#68758a}
+.page-footer{font-size:13px;color:#68758a;flex-wrap:wrap;gap:12px;line-height:1.8}
+.page-footer .text-button{font-size:13px}
+.drawer-top>span,.drawer-heading p,.detail-duration,.drawer-footer>span{font-size:14px}
+.drawer-heading h2{font-size:24px}
+.detail-summary strong,.check-card strong{font-size:15px}
+.detail-summary p,.detail-goal,.checks-heading,.checks-heading strong,.check-status,.check-card dl{font-size:14px}
+.detail-tabs button{font-size:15px}
+.detail-body pre{font-size:14px}
+.related-cases,.retest-diff,.retest-diff dl,.code-note,.checks-heading .text-button{font-size:14px}
+.check-card dl{grid-template-columns:36px 1fr;line-height:1.8}
+.check-card{padding:16px 14px}
+.modal-heading p,.help-content p,.modal-note,.suite-row p,.rerun-options label,.history-card p{font-size:14px}
+.help-content h3,.suite-row strong,.history-card strong,.mobile-navigation button{font-size:16px}
+.comparison-table td,.comparison-table th,.comparison-table td .text-button,.comparison-table td small{font-size:14px}
+.matrix-picker,.matrix-hint,.check-matrix,.check-matrix thead th,.check-matrix small,.check-matrix .text-button,.check-matrix strong{font-size:14px}
+.check-matrix th,.check-matrix td{min-width:210px}
+@media(min-width:901px){
+  :root{--sidebar:184px}
+  .sidebar{padding-left:12px;padding-right:12px}
+  .brand{font-size:20px;gap:8px;padding:0 5px;letter-spacing:0}
+  .brand img{width:32px;height:32px}
+  .nav-item{padding-left:10px;padding-right:10px}
+  main{padding-left:28px;padding-right:28px}
+}
+@media(max-width:1400px){
+  .graph-guide{display:block}
+  .toolbar-actions{flex:1;justify-content:flex-end}
+  .search-box input{width:130px}
+}
+@media(max-width:900px){
+  .breadcrumbs{gap:8px}
+  .metric{padding:16px 14px}
+  .canvas-top .legend{order:3;width:100%;gap:16px}
+  .canvas-top .replay-button{margin-left:auto}
+  .toolbar-actions{width:100%;border-top:1px solid var(--border);padding-top:12px;margin-top:0}
+  .search-box{flex:1}
+  .search-box input{width:100%;min-width:0}
+}
+@media(max-width:650px){
+  .topbar{height:58px;padding:0 14px}
+  .breadcrumbs{font-size:13px;gap:0}
+  .breadcrumbs>span:first-child{margin:0 8px}
+  .batch-id{font-size:12px}
+  .demo-pill{display:none}
+  main{padding:20px 12px 0}
+  .page-heading{margin-bottom:20px}
+  .page-heading h1{font-size:24px}
+  .heading-actions{margin-top:16px;padding-top:0;justify-content:flex-start}
+  .heading-actions .button{font-size:14px;min-height:44px;padding:10px 14px}
+  .metrics{margin-bottom:20px}
+  .metric{padding:16px 14px;min-height:128px}
+  .metric>strong{font-size:32px}
+  .metric-foot{font-size:13px}
+  .metric:last-child{border-bottom:0}
+  .results-title{display:block;padding:16px 12px}
+  .results-title h2{font-size:19px;margin:0}
+  .view-switch{margin-top:14px;display:flex}
+  .view-switch button{flex:1;font-size:14px;min-height:44px}
+  .toolbar{padding:12px}
+  .filter-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .filter-tabs button{font-size:14px;min-height:44px;padding:8px 6px}
+  .filter-tabs button span{font-size:13px}
+  .toolbar-actions{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px}
+  .search-box{grid-column:1 / -1}
+  .search-box input{font-size:16px;min-height:44px}
+  .model-filter{margin:0;padding:0;min-width:0;border:0}
+  .model-filter select{font-size:14px;width:100%;max-width:none;min-height:44px}
+  .canvas-top{padding:10px 12px;gap:8px}
+  .canvas-top .legend{gap:10px 14px;font-size:13px}
+  .graph-guide{padding:10px 12px}
+  .scroll-hint{margin:0;font-size:13px}
+  .graph{grid-template-columns:64px repeat(var(--lanes),minmax(240px,1fr));min-width:calc(64px + var(--lanes)*240px)}
+  .graph[style="--lanes:1"]{grid-template-columns:64px minmax(0,1fr);min-width:304px}
+  .graph.compact .stage-cell,.graph.compact .axis-row{height:120px}
+  .graph.compact .retest-row{height:228px}
+  .drawer-heading h2{font-size:23px}
+  .drawer-footer{flex-wrap:wrap}
+  .page-footer{padding:18px 0}
+  .comparison-table td[data-label]:before{font-size:14px}
+}
